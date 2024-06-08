@@ -1,11 +1,12 @@
 import React from 'react'
+import briyaniImage from '../asserts/briyaniImage.jpg';
 
 export default function Cards() {
   return (
     <div>
           <div>
-                <div className="card mt-3" style={{ "width": "18rem","maxHeight":"360px"}}>
-                    <img className="card-img-top" src="..." alt="Card image cap" />
+                <div className="card mt-3 rounded" style={{ "width": "18rem","maxHeight":"360px"}}>
+                    <img className="card-img-top" src={briyaniImage} alt="Card image cap" />
                     <div className="card-body">
                         <h5 className="card-title">Card title</h5>
                         <p className="card-text">this is some important etxt.</p>
