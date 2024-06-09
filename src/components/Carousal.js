@@ -1,12 +1,12 @@
 import React from 'react';
-
+import briyaniImage from '../asserts/briyaniImage.jpg';
 export default function Carousel() {
     return (
         <div>
             <div id="carouselExampleControls" className="carousel slide carousel-fade" data-bs-ride="carousel" >
                 <div className="carousel-inner" id="carousel">
                     <div className="carousel-item active">
-                        <img src="https://source.unsplash.com/random/900x700/?burger" className="d-block w-100" alt="..." />
+                        <img src={briyaniImage} className="d-block w-100" alt="..." />
                         <div className="carousel-caption d-none d-md-block">
                             <form className="d-flex">
                                 <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
@@ -15,7 +15,7 @@ export default function Carousel() {
                         </div>
                     </div>
                     <div className="carousel-item">
-                        <img src="https://source.unsplash.com/random/900x700/?food" className="d-block w-100" alt="..." />
+                        <img src={briyaniImage} className="d-block w-100" alt="..." />
                         <div className="carousel-caption d-none d-md-block">
                             <form className="d-flex">
                                 <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />

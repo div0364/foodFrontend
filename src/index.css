@@ -11,11 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.carousel{
+#carousel{
   
-  max-height: fit-content;
+  max-height:fit-content;
   
   
-  object-fit: contain;
+  object-fit: cover;
   margin: 0 auto; /* Center the image horizontally */
 }

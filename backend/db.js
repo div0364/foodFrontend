@@ -3,20 +3,20 @@ const mongoURI = 'mongodb://goFood:divyam123@ac-goysybp-shard-00-00.jplklky.mong
 
 const mongoDB = async () => {
     try {
-        await mongoose.connect(mongoURI);
+        await mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
         console.log("DB connected successfully");
 
-        // Ensure connection is open
-        const db = mongoose.connection.db;
+        const fetchedData = await mongoose.connection.db.collection("food_items").find({}).toArray();
+        const foodCategoryData = await mongoose.connection.db.collection('food_category').find({}).toArray();
 
-        // Fetch collection and find documents
-        const collection = db.collection('food_items');
-        const data = await collection.find({}).toArray();
+        global.food_items = fetchedData;
+        global.foodCategory = foodCategoryData;
 
-       // console.log(data);
+       // console.log("Fetched food items:", global.food_items);
+        //console.log("Fetched food categories:", global.foodCategory);
+
     } catch (err) {
-        console.log("DB CONNECTION ISSUES");
-        console.error(`Error: ${err.message}`);
+        console.error("DB CONNECTION ISSUES", err);
         process.exit(1);
     }
 };
