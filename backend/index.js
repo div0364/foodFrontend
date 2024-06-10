@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 });
 app.use(express.json());
 app.use('/api/v1',require("./Routes/CreateUser"));
-app.use('/api/v1',require("./Routes/displayData"));
+app.use('/api/v1',require("./Routes/DisplayData"));
 
 app.listen(port, () => {
     console.log(`App is listening at http://localhost:${port}`);

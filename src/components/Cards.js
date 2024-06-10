@@ -1,38 +1,80 @@
-import React from 'react'
-import briyaniImage from '../asserts/briyaniImage.jpg';
+import React, { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatchCart, useCart } from './ContextReducer';
 
-export default function Cards(props) {
+export default function Card(props) {
+  let data = useCart();
+  let navigate = useNavigate();
+  const [qty, setQty] = useState(1);
+  const [size, setSize] = useState("");
+  const priceRef = useRef();
+  let options = props.options || {};
+  let priceOptions = Object.keys(options);
 
+  const dispatch = useDispatchCart();
 
-    
+  const handleClick = () => {
+    if (!localStorage.getItem("authToken")) {
+      navigate("/login");
+    }
+  };
+
+  const handleQty = (e) => {
+    setQty(e.target.value);
+  };
+
+  const handleOptions = (e) => {
+    setSize(e.target.value);
+  };
+
+  const handleAddToCart = async () => {
+    let food = data.find(item => item.id === props.foodItem._id) || {};
+
+    if (Object.keys(food).length > 0) {
+      if (food.size === size) {
+        await dispatch({ type: "UPDATE", id: props.foodItem._id, price: finalPrice, qty: qty });
+        return;
+      } else {
+        await dispatch({ type: "ADD", id: props.foodItem._id, name: props.foodItem.name, price: finalPrice, qty: qty, size: size, img: props.ImgSrc });
+        console.log("Size different so simply ADD one more to the list");
+        return;
+      }
+    }
+
+    await dispatch({ type: "ADD", id: props.foodItem._id, name: props.foodItem.name, price: finalPrice, qty: qty, size: size });
+  };
+
+  useEffect(() => {
+    setSize(priceRef.current.value);
+  }, []);
+
+  let finalPrice = qty * parseInt(options[size]); // This is where Price is changing
+
   return (
     <div>
-          <div>
-                <div className="card mt-3 rounded" style={{ "width": "18rem","maxHeight":"360px"}}>
-                    <img className="card-img-top" id="cardImg" src="" alt="Card image cap" />
-                    <div className="card-body">
-                        <h5 className="card-title">{props.foodName}</h5>
-                        
-                        <div className="container w-100 flex item-center">
-                            <select className='m-2 h-100  bg-success'>
-                                {Array.from(Array(6), (e,i)=>{
-                                    return (
-                                        <option key={i+1} vlaue={i+1}>{i+1}</option>
-                                    )
-                                })}
-                            </select>
-
-                            <select className='m-2 h-100  bg-success'>
-                             <option value="half">Half</option>
-                             <option value="full">Full</option>
-                            </select>
-
-                                <div className='mt-2'>TotalPrice</div>
-                        </div>
-
-                    </div>
-                </div>
+      <div className="card mt-3" style={{ width: "16rem", maxHeight: "360px" }}>
+        <img src={props.foodItem.img} className="card-img-top" alt="..." style={{ height: "120px", objectFit: "fill" }} />
+        <div className="card-body">
+          <h5 className="card-title">{props.foodItem.name}</h5>
+          <div className='container w-100 p-0' style={{ height: "38px" }}>
+            <select className="m-2 h-100 w-20 bg-success text-black rounded" onChange={handleQty}>
+              {Array.from(Array(6), (e, i) => (
+                <option key={i + 1} value={i + 1}>{i + 1}</option>
+              ))}
+            </select>
+            <select className="m-2 h-100 w-20 bg-success text-black rounded" ref={priceRef} onChange={handleOptions}>
+              {priceOptions.map((i) => (
+                <option key={i} value={i}>{i}</option>
+              ))}
+            </select>
+            <div className='d-inline ms-2 h-100 w-20 fs-5'>
+              ₹{finalPrice}/-
             </div>
+          </div>
+          <hr />
+          <button className="btn btn-success justify-center ms-2" onClick={handleAddToCart}>Add to Cart</button>
+        </div>
+      </div>
     </div>
-  )
+  );
 }
