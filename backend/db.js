@@ -1,3 +1,4 @@
+
 const mongoose = require('mongoose');
 const mongoURI = 'mongodb://goFood:divyam123@ac-goysybp-shard-00-00.jplklky.mongodb.net:27017,ac-goysybp-shard-00-01.jplklky.mongodb.net:27017,ac-goysybp-shard-00-02.jplklky.mongodb.net:27017/goFood?replicaSet=atlas-c66l3y-shard-0&ssl=true&authSource=admin';
 
