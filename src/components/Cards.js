@@ -57,12 +57,12 @@ export default function Card(props) {
         <div className="card-body">
           <h5 className="card-title">{props.foodItem.name}</h5>
           <div className='container w-100 p-0' style={{ height: "38px" }}>
-            <select className="m-2 h-100 w-20 bg-success text-black rounded" onChange={handleQty}>
+            <select className="m-2 h-100 w-20 bg-info text-black rounded" onChange={handleQty}>
               {Array.from(Array(6), (e, i) => (
                 <option key={i + 1} value={i + 1}>{i + 1}</option>
               ))}
             </select>
-            <select className="m-2 h-100 w-20 bg-success text-black rounded" ref={priceRef} onChange={handleOptions}>
+            <select className="m-2 h-100 w-20 bg-info text-black rounded" ref={priceRef} onChange={handleOptions}>
               {priceOptions.map((i) => (
                 <option key={i} value={i}>{i}</option>
               ))}
@@ -72,7 +72,7 @@ export default function Card(props) {
             </div>
           </div>
           <hr />
-          <button className="btn btn-success justify-center ms-2" onClick={handleAddToCart}>Add to Cart</button>
+          <button className="btn btn-info justify-center ms-2" onClick={handleAddToCart}>Add to Cart</button>
         </div>
       </div>
     </div>

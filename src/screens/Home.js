@@ -3,7 +3,10 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Cards from '../components/Cards';
 
-import briyaniImage from '../asserts/briyaniImage.jpg';
+//import briyaniImage from '../asserts/briyaniImage.jpg';
+import image1 from '../asserts/food1.avif';
+import image2 from '../asserts/food2.avif';
+import image3 from '../asserts/food3.avif';
 
 export default function Home() {
 
@@ -33,20 +36,20 @@ export default function Home() {
 
     return (
         <div>
-            <div><Navbar /></div>
-            <div>
-                <div className="carousel-inner" id="carousel">
+            <Navbar />
+            <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
+                <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img src={briyaniImage} className="d-block w-100" alt="..." />
+                        <img src={image1} className="d-block w-100" alt="..." />
                         <div className="carousel-caption d-none d-md-block">
                             <div className="d-flex justify-content-center">
-                                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" value={search} onChange={(e)=>{setSearch(e.target.value)}}/>
+                                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" value={search} onChange={(e) => { setSearch(e.target.value) }} />
                                 {/* <button className="btn btn-outline-success" type="submit">Search</button> */}
                             </div>
                         </div>
                     </div>
                     <div className="carousel-item">
-                        <img src={briyaniImage} className="d-block w-100" alt="..." />
+                        <img src={image2} className="d-block w-100" alt="..." />
                         <div className="carousel-caption d-none d-md-block">
                             <form className="d-flex">
                                 <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
@@ -55,7 +58,7 @@ export default function Home() {
                         </div>
                     </div>
                     <div className="carousel-item">
-                        <img src="https://source.unsplash.com/random/900x700/?drinks" className="d-block w-100" alt="..." />
+                        <img src={image3} className="d-block w-100" alt="..." />
                         <div className="carousel-caption d-none d-md-block">
                             <form className="d-flex">
                                 <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
@@ -74,7 +77,7 @@ export default function Home() {
                 </button>
             </div>
             <div className='container'>
-                {foodCat.length > 0 ?(
+                {foodCat.length > 0 ? (
                     foodCat.map((category) => (
                         <div key={category._id} className='row mb-3'>
                             <div className='fs-3 m-3'>
@@ -84,12 +87,11 @@ export default function Home() {
                             <div className='row'>
                                 {foodItem.length > 0 ? (
                                     foodItem
-                                        .filter((item) => (item.CategoryName === category.CategoryName) && (item.name.toLowerCase().includes(search.toLocaleLowerCase())) )
+                                        .filter((item) => (item.CategoryName === category.CategoryName) && (item.name.toLowerCase().includes(search.toLocaleLowerCase())))
                                         .map((filteredItem) => (
                                             <div key={filteredItem._id} className='col-12 col-md-6 col-lg-3'>
                                                 <Cards foodItem={filteredItem}
                                                     options={filteredItem.options[0]}
-                                                 
                                                 />
                                             </div>
                                         ))

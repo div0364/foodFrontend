@@ -8,10 +8,14 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // Standard Bootstrap
 import 'bootstrap-dark-5/dist/css/bootstrap-dark.min.css'; // Bootstrap Dark
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // Bootstrap JS bundle
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+   
     <App />
+ 
+   
   </React.StrictMode>
 );
 

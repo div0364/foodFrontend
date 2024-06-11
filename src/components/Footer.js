@@ -4,7 +4,7 @@ export default function Footer() {
     return (
         <footer className="container">
             <div className="d-flex justify-content-between py-4 my-4 border-top">
-                <p>&copy; 2024 FoodHub, Inc. All rights reserved.</p>
+                <p>&copy; 2024 FoodieHub, Inc. All rights reserved.</p>
                 <ul className="list-unstyled d-flex">
                     <li className="ms-3">
                         <Link className="link-dark" to="#">
