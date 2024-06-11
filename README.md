@@ -1,4 +1,33 @@
-# Getting Started with Create React App
+# "FoodieHub" Getting Started with Create React App
+Welcome to FoodieHub - your ultimate destination for exploring and sharing culinary delights! Whether you're a food enthusiast, a home cook, or a professional chef, FoodieHub is the perfect place to discover new recipes, share your culinary creations, and connect with fellow food lovers.
+
+Features
+Recipe Discovery: Browse through a vast collection of recipes from various cuisines.
+Search and Filters: Use advanced search options and filters to find the perfect recipe for any occasion.
+Favorites: Save your favorite recipes for quick access
+
+Tech Stack
+Frontend:
+
+React
+Bootstrap
+Backend:
+
+Node.js
+Express.js
+Database:
+
+MongoDB
+Authentication:
+
+JWT (JSON Web Tokens)
+
+Getting Started
+Prerequisites
+Node.js (version 14.x or later)
+npm (version 6.x or later)
+MongoDB
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
