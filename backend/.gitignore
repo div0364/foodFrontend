@@ -4,10 +4,9 @@
 # Exclude node_modules directory
 node_modules/
 
-# Build output
-build/
-dist/
+# Coverage directory
+coverage/
 
-# Cache
-.cache/
-.parcel-cache/
+# Log files
+logs/
+*.log
