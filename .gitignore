@@ -1,13 +1,2 @@
-# Exclude environment variables file
 .env
-
-# Exclude node_modules directory
 node_modules/
-
-# Build output
-build/
-dist/
-
-# Cache
-.cache/
-.parcel-cache/
