@@ -16,7 +16,7 @@ export default function Home() {
 
     const loadData = async () => {
         try {
-            const response = await fetch("http://localhost:4000/api/v1/foodData", {
+            const response = await fetch("https://foodiebackend-pifb.onrender.com/api/v1/foodData", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
