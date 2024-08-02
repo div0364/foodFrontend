@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 
 require("dotenv").config();
-const port = process.env.PORT;
+const port = process.env.PORT||6010;
 
 app.use((req,res,next)=>{
     res.setHeader("Access-Control-Allow-Origin","http://localhost:3000");
