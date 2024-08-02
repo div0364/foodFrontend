@@ -17,8 +17,14 @@ export default function Home() {
     const loadData = async () => {
         try {
             const response = await fetch("https://foodiebackend-pifb.onrender.com/api/v1/foodData", {
-                method: 'POST',
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
             });
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
             const data = await response.json();
             setFoodItem(data[0]);
             setFoodCat(data[1]);
