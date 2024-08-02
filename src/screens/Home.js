@@ -18,9 +18,6 @@ export default function Home() {
         try {
             const response = await fetch("https://foodiebackend-pifb.onrender.com/api/v1/foodData", {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
             });
             const data = await response.json();
             setFoodItem(data[0]);
